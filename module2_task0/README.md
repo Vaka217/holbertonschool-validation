@@ -23,3 +23,5 @@
 - clean: Stop the application. Delete the binary awesome-api and the log file awesome-api.log.
 
 - test: Test the application using curl.
+
+- help: Print a list of all the goals.

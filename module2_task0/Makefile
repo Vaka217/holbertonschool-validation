@@ -19,6 +19,7 @@ clean: ## Cleanup the content of the directory dist/
 	@rm -rf awesome-api awesome-api.log
 
 test: ## Test it to ensure that it behaves as expected
+	@pkill awesome-api
 	@curl http://localhost:9999
 	@curl http://localhost:9999/health
 
