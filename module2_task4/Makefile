@@ -34,7 +34,7 @@ unit-tests: ## Execute the Golang unit tests
 integration-tests: ## Execute the Golang integration tests
 	@go test -v -coverprofile=coverage-integrations.out
 
-check:
+check: ## Succeed by default, and fail when presented with a dead link or a badly written Markdown file
 	markdownlint ./content/posts/*
 	markdown-link-check ./content/posts/*
 
