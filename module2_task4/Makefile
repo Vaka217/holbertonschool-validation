@@ -35,8 +35,8 @@ integration-tests: ## Execute the Golang integration tests
 	@go test -v -coverprofile=coverage-integrations.out
 
 check: ## Succeed by default, and fail when presented with a dead link or a badly written Markdown file
-	markdownlint ./content/posts/*
-	markdown-link-check ./content/posts/*
+	@markdownlint ./content/posts/*
+	@markdown-link-check ./content/posts/*
 
 validate: ## Always succeed by default and should print the result on the stdout
-	./W3C-Validator/w3c_validator.py ./dist/index.html || true
+	@./W3C-Validator/w3c_validator.py ./dist/index.html || true
