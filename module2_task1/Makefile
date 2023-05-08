@@ -18,9 +18,9 @@ post: ## Create a new blog post whose filename and title come from the environme
 stop: ## Stop the application with the command kill XXXXX where XXXXX is the Process ID of the application
 	@pkill awesome-api
 
-clean: ## Cleanup the content of the directory dist/
-	@pkill awesome-api
-	@rm -rf awesome-api awesome-api.log
+clean: ## Cleanup the content of the directory dist/ and awesome-api/awesome-api.log files
+	@rm -rf dist
+	@rm -f awesome-api awesome-api.log
 
 test: ## Test it to ensure that it behaves as expected
 	@curl http://localhost:9999
