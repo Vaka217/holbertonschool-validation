@@ -20,7 +20,7 @@ stop: ## Stop the application with the command kill XXXXX where XXXXX is the Pro
 
 clean: ## Cleanup the content of the directory dist/ and awesome-api/awesome-api.log files
 	@rm -rf dist
-	@rm -f awesome-api awesome-api.log
+	@rm -f awesome-api awesome-api.log coverage-units.out coverage-integrations.out
 
 test: unit-tests integration-tests ## Test it to ensure that it behaves as expected
 	
@@ -32,4 +32,4 @@ unit-tests: ## Execute the Golang unit tests
 	@go test -v -short -coverprofile=coverage-units.out
 
 integration-tests: ## Execute the Golang integration tests
-	@go test -v -short -coverprofile=coverage-integrations.out
+	@go test -v -coverprofile=coverage-integrations.out
