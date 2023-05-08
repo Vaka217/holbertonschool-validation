@@ -1,3 +1,6 @@
+lint: ## Fail when the linter catches an error
+	@golangci-lint run
+
 build: ## Generate the website from the markdown and configuration files in the directory dist/
 	@hugo
 	@go build -o awesome-api
@@ -25,6 +28,3 @@ test: ## Test it to ensure that it behaves as expected
 
 help: ## Show this help usage
 	@awk -F ': ' '/^[^#].*: /{printf "  %-15s%s\n", $$1, $$2}' $(MAKEFILE_LIST)
-
-lint: ## Fail when the linter catches an error
-	@golangci-lint run
