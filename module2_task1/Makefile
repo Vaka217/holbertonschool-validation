@@ -1,7 +1,7 @@
 lint: ## Fail when the linter catches an error
 	@golangci-lint run
 
-build: ## Generate the website from the markdown and configuration files in the directory dist/
+build: lint ## Generate the website from the markdown and configuration files in the directory dist/
 	@hugo
 	@go build -o awesome-api
 
@@ -19,7 +19,8 @@ stop: ## Stop the application with the command kill XXXXX where XXXXX is the Pro
 	@pkill awesome-api
 
 clean: ## Cleanup the content of the directory dist/
-	@rm -f awesome-api awesome-api.log
+	@pkill awesome-api
+	@rm -rf awesome-api awesome-api.log
 
 test: ## Test it to ensure that it behaves as expected
 	@curl http://localhost:9999
