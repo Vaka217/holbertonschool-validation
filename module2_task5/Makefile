@@ -21,8 +21,9 @@ stop: ## Stop the application with the command kill XXXXX where XXXXX is the Pro
 clean: ## Cleanup the content of the directory dist/ and awesome-api/awesome-api.log files
 	@rm -rf dist
 	@rm -f awesome-api awesome-api.log coverage-units.out coverage-integrations.out
+	@pkill awesome-api
 
-test: unit-tests integration-tests ## Test it to ensure that it behaves as expected
+test: unit-tests integration-tests validate ## Test it to ensure that it behaves as expected
 	
 
 help: ## Show this help usage
