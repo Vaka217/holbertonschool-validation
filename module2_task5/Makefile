@@ -1,4 +1,7 @@
-build: lint check ## Generate the website from the markdown and configuration files in the directory dist/
+lint: ## Fail when the linter catches an error
+	@golangci-lint run
+
+build: check ## Generate the website from the markdown and configuration files in the directory dist/
 	@hugo
 	@go build -o awesome-api
 
