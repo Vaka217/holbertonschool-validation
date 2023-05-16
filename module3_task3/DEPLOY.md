@@ -8,4 +8,4 @@
 Create a GitHub Release using the “softprops/gh-release” GitHub Action named
 1.0.0 and pointing to the tag 1.0.0,
 Add the archive awesome-website.zip to the release 1.0.0,
-Add the content of the file DEPLOY.md as text for the release.
+Add the content of the file DEPLOY.md as text for the relase.
