@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: Help
         run: make help
-        working-directory: ../module3_task0
+        working-directory: ${{ github.workspace }}/module3_task0
