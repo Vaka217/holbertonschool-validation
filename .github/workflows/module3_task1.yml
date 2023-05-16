@@ -1,0 +1,17 @@
+---
+name: module3_task1
+run-name: module3_task1
+on: # yamllint disable-line rule:truthy
+  push:
+  schedule:
+    - cron: "30 5,17 * * *"
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Build
+        run: make build
+        working-directory: module3_task1
