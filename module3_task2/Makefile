@@ -1,7 +1,7 @@
 lint: ## Fail when the linter catches an error
 	@markdownlint --fix DEPLOY.md README.md
 
-build: ## Generate the website from the markdown and configuration files in the directory dist/
+build: lint ## Generate the website from the markdown and configuration files in the directory dist/
 	@hugo
 
 run: ## Run the application in background by executing the binary awesome-api
