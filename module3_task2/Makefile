@@ -5,6 +5,7 @@ build: lint check ## Generate the website from the markdown and configuration fi
 	@hugo
 	@echo 'make lint'
 	@echo 'make unit-tests'
+	@echo 'make integration-tests'
 
 run: ## Run the application in background by executing the binary awesome-api
 	@./awesome-api >./awesome-api.log 2>&1 &
