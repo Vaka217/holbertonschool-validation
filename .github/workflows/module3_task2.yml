@@ -26,6 +26,7 @@ jobs:
         id: test
         run: sudo make test
           sudo make validation
+        working-directory: module3_task2
 
       - name: Package
         if: steps.test.outputs.exit_code == 0
