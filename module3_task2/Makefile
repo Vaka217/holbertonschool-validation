@@ -1,9 +1,8 @@
 lint: ## Fail when the linter catches an error
 	@golangci-lint run
 
-build: check ## Generate the website from the markdown and configuration files in the directory dist/
+build: ## Generate the website from the markdown and configuration files in the directory dist/
 	@hugo
-	@go build -o awesome-api
 
 run: ## Run the application in background by executing the binary awesome-api
 	@./awesome-api >./awesome-api.log 2>&1 &
