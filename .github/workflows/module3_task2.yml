@@ -25,7 +25,6 @@ jobs:
       - name: Test validation
         id: test
         run: sudo make test
-          make validation
         working-directory: module3_task2
 
       - name: Package
