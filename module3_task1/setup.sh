@@ -7,4 +7,3 @@ sudo mv hugo /usr/local/bin/
 sudo apt-get install -y hugo make
 sudo npm install -g markdownlint-cli
 sudo npm install -g markdown-link-check
-sudo make build

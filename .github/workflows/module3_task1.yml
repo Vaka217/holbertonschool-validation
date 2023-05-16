@@ -17,5 +17,5 @@ jobs:
         working-directory: module3_task1
 
       - name: Build
-        run: make build
+        run: sudo make build
         working-directory: module3_task1
