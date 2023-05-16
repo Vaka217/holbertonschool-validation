@@ -9,4 +9,6 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-22.04
     steps:
-      - run: make help
+      - name: Help
+        run: make help
+        working-directory: ./module3_task0
