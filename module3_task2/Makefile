@@ -1,5 +1,5 @@
 lint: ## Fail when the linter catches an error
-	@golangci-lint run
+	@markdownlint --fix DEPLOY.md README.md
 
 build: ## Generate the website from the markdown and configuration files in the directory dist/
 	@hugo
