@@ -12,6 +12,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Setup
+        run: ./setup.sh
+
       - name: Build
         run: make build
         working-directory: module3_task1
