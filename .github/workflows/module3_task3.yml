@@ -9,6 +9,8 @@ on: # yamllint disable-line rule:truthy
       - "*"
   schedule:
     - cron: "30 5,17 * * *"
+permissions:
+  contents: write
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-22.04
