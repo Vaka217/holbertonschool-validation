@@ -11,6 +11,9 @@ on: # yamllint disable-line rule:truthy
     - cron: "30 5,17 * * *"
 permissions:
   contents: write
+defaults:
+  run:
+    working-directory: module3_task3
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-22.04
@@ -20,23 +23,17 @@ jobs:
 
       - name: Setup
         run: ./setup.sh
-        working-directory: module3_task3
 
       - name: Build
         run: sudo make build
-        working-directory: module3_task3
 
       - name: Test validation
         id: test
         run: sudo make test
-        working-directory: module3_task3
 
       - name: Package
         if: steps.test.outputs.exit_code == 0
-        run: |
-          sudo make package
-          ls
-        working-directory: module3_task3
+        run: sudo make package
 
       - name: 1.0.0
         uses: softprops/action-gh-release@v1
@@ -45,4 +42,3 @@ jobs:
           files: |
             DEPLOY.md
             awesome-website.zip
-        run: ls
