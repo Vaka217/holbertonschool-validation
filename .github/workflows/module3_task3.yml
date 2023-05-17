@@ -38,6 +38,8 @@ jobs:
       - name: 1.0.0
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           files: |
             DEPLOY.md
