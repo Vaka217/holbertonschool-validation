@@ -41,3 +41,4 @@ jobs:
           files: |
             ./DEPLOY.md
             ./awesome-website.zip
+        working-directory: module3_task3
