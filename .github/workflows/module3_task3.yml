@@ -45,5 +45,4 @@ jobs:
           files: |
             DEPLOY.md
             awesome-website.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ls
