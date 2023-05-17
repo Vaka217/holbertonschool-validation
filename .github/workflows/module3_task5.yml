@@ -55,8 +55,7 @@ jobs:
           enable-pull-request-comment: true
           enable-commit-comment: true
           overwrites-pull-request-comment: true
-        if: ${{ github.event_name == 'push.branches.master' }}
-          production-deploy: true
+          production-deploy: ${{ github.ref == 'refs/heads/master' }}
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
