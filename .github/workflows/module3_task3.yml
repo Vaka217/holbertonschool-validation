@@ -35,7 +35,7 @@ jobs:
         if: steps.test.outputs.exit_code == 0
         run: |
           sudo make package
-          ls module3_task3
+          ls
         working-directory: module3_task3
 
       - name: 1.0.0
