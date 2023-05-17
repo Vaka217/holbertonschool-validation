@@ -42,5 +42,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           files: |
-            DEPLOY.md
+            holbertonschool-validation/module3_task3/DEPLOY.md
             awesome-website.zip
