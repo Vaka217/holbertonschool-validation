@@ -1,4 +1,3 @@
----
 name: module3_task5
 run-name: module3_task5
 on: # yamllint disable-line rule:truthy
@@ -20,7 +19,7 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v3
 
       - name: Setup
