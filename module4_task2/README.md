@@ -47,6 +47,11 @@ written Markdown file
 - package: Produces a file awesome-website.zip, containing the binary
 awesome-api and the directory dist/ directory
 
+- build-docker: Build a docker image named awesome:build from the Dockerfile
+when the target is invoked
+
+- docker-tests: Test the generated Docker Image
+
 ## Workflow
 
 - module3_task0: this workflow clones the repository, using ubuntu-22.04 as the
