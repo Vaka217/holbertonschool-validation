@@ -22,6 +22,28 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Install markdownlint
+        run: sudo npm install -g markdownlint-cli
+
+      - name: Install markdownlint-check
+        run: sudo npm install -g markdown-link-check
+
+      - name: lint
+        run:
+          make lint
+
+      - name: unit-tests
+        run:
+          make unit-tests
+
+      - name: integration-tests
+        run:
+          make integration-tests
+
+      - name: validate tests
+        run:
+          make validate
+
       - name: Setup
         run: ./setup.sh
 
