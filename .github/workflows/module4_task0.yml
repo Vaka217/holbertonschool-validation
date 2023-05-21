@@ -41,8 +41,8 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            module3_task5/DEPLOY.md
-            module3_task5/awesome-website.zip
+            module4_task0/DEPLOY.md
+            module4_task0/awesome-website.zip
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0

@@ -3,7 +3,6 @@ lint: ## Fail when the linter catches an error
 
 build: lint check ## Generate the website from the markdown and configuration files in the directory dist/
 	@hugo
-	@docker run --rm golang:1.15.8-buster go build -o awesome-api
 	@echo 'make lint'
 	@echo 'make unit-tests'
 	@echo 'make integration-tests'
@@ -34,10 +33,10 @@ help: ## Show this help usage
 	@awk -F ': ' '/^[^#].*: /{printf "  %-15s%s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 unit-tests: ## Execute the Golang unit tests
-	@docker run --rm golang:1.15.8-buster go test -v -short -coverprofile=coverage-units.out
+	@go test -v -short -coverprofile=coverage-units.out
 
 integration-tests: ## Execute the Golang integration tests
-	@docker run --rm golang:1.15.8-buster go test -v -coverprofile=coverage-integrations.out
+	@go test -v -coverprofile=coverage-integrations.out
 
 check: ## Succeed by default, and fail when presented with a dead link or a badly written Markdown file
 	@markdownlint ./content/posts/*
