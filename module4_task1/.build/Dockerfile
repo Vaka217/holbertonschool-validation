@@ -1,4 +1,4 @@
-FROM golang:1.15.8-buster
+FROM golang:latest
 
 
 RUN apt-get update && apt-get install -y hugo && \
