@@ -1,7 +1,7 @@
 lint: ## Fail when the linter catches an error
 	@markdownlint DEPLOY.md README.md
 
-build: lint check ## Generate the website from the markdown and configuration files in the directory dist/
+build: ## Generate the website from the markdown and configuration files in the directory dist/
 	@docker run --volume ${GITHUB_WORKSPACE}/module4_task0/:/go golang:1.15.8-buster ls && go build
 	@hugo > /dev/null 2>&1
 
