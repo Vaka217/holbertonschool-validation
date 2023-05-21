@@ -40,7 +40,7 @@ jobs:
         run: make lint
 
       - name: docker-tests
-        run: make docker-test
+        run: make docker-tests
 
       - name: unit-tests
         run: make unit-tests
