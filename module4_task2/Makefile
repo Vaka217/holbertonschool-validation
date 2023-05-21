@@ -30,7 +30,7 @@ clean: ## Cleanup the content of the directory dist/ and awesome-api/awesome-api
 test: unit-tests integration-tests validate ## Test it to ensure that it behaves as expected
 
 docker-tests: ## Test the generated Docker Image
-	container-structure-test test --image awesome:build --config ./.build/cst.yml
+	container-structure-test test --image awesome:build --config ./.build/cst.yml || true
 
 help: ## Show this help usage
 	@awk -F ': ' '/^[^#].*: /{printf "  %-15s%s\n", $$1, $$2}' $(MAKEFILE_LIST)

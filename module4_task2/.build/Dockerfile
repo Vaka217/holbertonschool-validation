@@ -1,6 +1,6 @@
-FROM golang:1.15.8-alpine
+FROM golang:latest
 
-RUN apk update && apk add --no-cache hugo=0.84.0 && \
+RUN apt-get update && apt-get install -y hugo && \
     go get -u github.com/golangci/golangci-lint/cmd/golangci-lint@v1.33.0
 
 WORKDIR /usr/src/myapp
