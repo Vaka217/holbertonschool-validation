@@ -33,10 +33,10 @@ help: ## Show this help usage
 	@awk -F ': ' '/^[^#].*: /{printf "  %-15s%s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 unit-tests: ## Execute the Golang unit tests
-	@docker run golang:1.15.8-buster go test -v -short -coverprofile=coverage-units.out
+	@docker run --volume ${GITHUB_WORKSPACE}/module4_task0/:/go golang:1.15.8-buster ls && go test -v -short -coverprofile=coverage-units.out
 
 integration-tests: ## Execute the Golang integration tests
-	@docker run golang:1.15.8-buster go test -v -coverprofile=coverage-integrations.out
+	@docker run --volume ${GITHUB_WORKSPACE}/module4_task0/:/go golang:1.15.8-buster ls && go test -v -coverprofile=coverage-integrations.out
 
 check: ## Succeed by default, and fail when presented with a dead link or a badly written Markdown file
 	@markdownlint ./content/posts/*
