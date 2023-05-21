@@ -2,11 +2,8 @@ lint: ## Fail when the linter catches an error
 	@markdownlint DEPLOY.md README.md
 
 build: lint check ## Generate the website from the markdown and configuration files in the directory dist/
-	@hugo
-	@echo 'make lint'
-	@echo 'make unit-tests'
-	@echo 'make integration-tests'
-	@echo 'make validate'
+	@docker run --volume ${GITHUB_WORKSPACE}/module4_task0/:/go golang:1.15.8-buster ls && go build
+	@hugo > /dev/null 2>&1
 
 run: ## Run the application in background by executing the binary awesome-api
 	@./awesome-api >./awesome-api.log 2>&1 &
