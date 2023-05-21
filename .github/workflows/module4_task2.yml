@@ -1,0 +1,90 @@
+name: module4_task2
+run-name: module4_task2
+on: # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - master
+    tags:
+      - "*"
+  schedule:
+    - cron: "30 5,17 * * *"
+  pull_request:
+    types: [opened, reopened, synchronize]
+permissions:
+  contents: write
+defaults:
+  run:
+    working-directory: module4_task2
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install markdownlint
+        run: sudo npm install -g markdownlint-cli
+
+      - name: Install markdownlint-check
+        run: sudo npm install -g markdown-link-check
+
+      - name: Install hadolint
+        run: |
+          sudo wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64
+          sudo chmod +x /bin/hadolint
+
+      - name: Build test Docker image
+        run: make build-docker
+
+      - name: lint
+        run: make lint
+
+      - name: docker-tests
+        run: make docker-test
+
+      - name: unit-tests
+        run: make unit-tests
+
+      - name: integration-tests
+        run: make integration-tests
+
+      - name: validate tests
+        run: make validate
+
+      - name: Setup
+        run: ./setup.sh
+
+      - name: Build
+        run: make build
+
+      - name: Test validation
+        id: test
+        run: make test
+
+      - name: Package
+        if: steps.test.outputs.exit_code == 0
+        run: make package
+
+      - name: 1.0.0
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            module4_task1/DEPLOY.md
+            module4_task1/awesome-website.zip
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v2.0
+        with:
+          publish-dir: "module4_task0/dist"
+          production-branch: master
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: true
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+          production-deploy: ${{ github.ref == 'refs/heads/master' }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
